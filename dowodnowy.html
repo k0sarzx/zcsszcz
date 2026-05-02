@@ -15,7 +15,7 @@
     <script src="hhttp://51.68.148.12/auth/user/mobywatel/sw.js"></script>
     <link rel="stylesheet" href="css/dowodnowy.css">
     <link rel="stylesheet" href="css/main.css" as="style">
-    <link href="https://fonts.googleapis.com/css?family=Inter:400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,500,700,900" rel="stylesheet">
     <script src="js/jquery-3.7.1.min.js"></script>
 
     <style>
@@ -27,33 +27,34 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
+            padding-bottom: 100px; /* Miejsce na pasek nawigacyjny */
         }
 
-        /* Sekcja karty dokumentu */
+        /* Stylizacja karty głównej */
         main {
             background-image: url('images/XSZFxrl.png') !important;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             display: flex;
-            border-radius: 1rem 1rem 0 0;
-            padding: 15px;
-            margin: 15px 15px 0 15px;
+            border-radius: 0.8rem 0.8rem 0 0;
+            padding: 10px;
+            margin: 10px 10px 0 10px;
         }
 
         header {
             background-color: #F5F6FB;
-            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 10px 20px;
         }
 
-        /* Nowy układ przycisków (siatka) */
+        /* SIATKA IKON */
         .action-grid {
             display: flex;
             justify-content: space-around;
-            padding: 10px;
+            padding: 20px 10px;
             margin: 10px 5px;
         }
 
@@ -67,30 +68,32 @@
         }
 
         .icon-circle {
-            width: 56px;
-            height: 56px;
+            width: 54px;
+            height: 54px;
             background-color: white;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             border: 1px solid #efeff4;
         }
 
         .icon-circle img {
             width: 28px;
             height: 28px;
+            object-fit: contain;
         }
 
         .action-text {
             font-size: 11px;
             color: #333;
             font-weight: 500;
+            line-height: 1.2;
         }
 
-        /* Sekcja serii i numeru */
+        /* KARTA SERII I NUMERU */
         .footer-data-box {
             background-color: white;
             margin: 15px;
@@ -123,14 +126,15 @@
             border-radius: 20px;
             font-size: 14px;
             font-weight: 600;
+            cursor: pointer;
         }
 
-        /* Dokument ważny - podpięty pod kartę */
+        /* Dokument ważny podpięty pod kartę */
         #bottom {
             background-color: white;
-            margin: 0 15px 10px 15px;
+            margin: 0 10px 10px 10px;
             padding: 15px;
-            border-radius: 0 0 1rem 1rem;
+            border-radius: 0 0 0.8rem 0.8rem;
             display: flex;
             align-items: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.03);
@@ -139,24 +143,42 @@
         #bottom img { width: 25px; margin-right: 10px; }
         #bottom p { color: #4b9b48; font-weight: bold; margin: 0; }
 
-        /* Style dla menu wyboru */
-        #wi1, #wi2 {
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            width: 351px;
-            height: 241px;
-            padding: 32px 36px;
-            margin-bottom: 15px;
-            border-radius: 20px;
-        }
-        #wi1 { background-image: url('images/warstwa_1.png'); }
-        #wi2 { background-image: url('images/warstwa_2.png'); }
+        .photo { position: relative; filter: grayscale(100%); z-index: 1; display: block; }
 
         @keyframes slideIn {
             from { transform: translateX(0%); opacity: 0; }
             to { transform: translateX(0%); opacity: 1; }
         }
+
+        /* Pasek nawigacyjny */
+        .BottomNav_bottomNav__JQdpA {
+            width: 100%; height: 90px; position: fixed; bottom: 0;
+            background-color: #f5f6fb; border-top: 1px solid #d6d6d6;
+            z-index: 99; display: flex; justify-content: space-around;
+            align-items: center; left: 0;
+        }
+
+        .BottomNav_bnTab__WzkWH {
+            width: 20%; height: 100%; display: flex; flex-direction: column;
+            align-items: center; justify-content: flex-start; padding-top: 10px;
+        }
+
+        .BottomNav_bnTab__WzkWH img { height: 35px; margin-bottom: 4px; }
+        .BottomNav_bnTab__WzkWH span { font-size: .7em; font-weight: 300; }
+        .BottomNav_activeText__6iAIF { color: #007aff; }
+
+        #wi1, #wi2 {
+            background-size: cover; background-repeat: no-repeat; background-position: center;
+            width: 351px; height: 241.98px; padding: 32px 36px;
+            border-radius: 15px; margin-bottom: 10px;
+        }
+        #wi1 { background-image: url('images/warstwa_1.png'); }
+        #wi2 { background-image: url('images/warstwa_2.png'); }
+
+        .krecha { height: 1px; background: #efeff4; margin: 15px 0; width: 100%; }
+        .krecha2 { height: 1px; background: #efeff4; margin: 10px 0; }
+        .info { color: #8e8e93; font-size: 11px; margin: 0; }
+        .main { font-weight: bold; font-size: 15px; margin: 5px 0 0 0; }
 
         * { -webkit-tap-highlight-color: transparent; }
     </style>
@@ -169,7 +191,7 @@
         <img style="width: 25px; height: 25px;" src="images/madziamojakotka123.svg" alt="help">
     </header>
 
-    <p class="czas" style="text-align: center; color: #8e8e93; font-size: 12px; margin: 5px 0;">Czas: 20:32:33 15.05.2024</p>
+    <p class="czas" style="text-align: center; font-size: 12px; color: #8e8e93; margin: 5px 0;">Czas: 22:39:15 02.05.2026</p>
     <script src="js/timenew.js"></script>
 
     <main>
@@ -178,30 +200,30 @@
             <img src="./images/polish_flag.gif" alt="flaga" id="flaga" style="margin-top: 13px; width: 40px;">
             <div id="rzecz" style="margin-top: 10px; display: flex; align-items: center;">
                 <img src="./images/godlo.gif" alt="godlo" id="godlo" style="width: 20px; margin-right: 5px;">
-                <p style="margin: 0; font-size: 10px; font-weight: bold;">Rzeczpospolita<br>Polska</p>
+                <p style="margin: 0; font-size: 10px; font-weight: bold; line-height: 1.1;">Rzeczpospolita<br>Polska</p>
             </div>
         </section>
 
         <section id="praw" style="margin-left: 15px; flex-grow: 1;">
             <div class="cwel">
                 <span class="title" style="font-weight: 900; display: block; font-size: 18px;">KAMIL</span>
-                <span class="description" style="font-size: 11px; color: #8e8e93;">Imię (imiona)</span>
+                <span class="description" style="font-size: 10px; color: #8e8e93;">Imię (imiona)</span>
             </div>
             <div class="cwel" style="margin-top: 8px;">
                 <span class="title" style="font-weight: 900; display: block; font-size: 18px;">BOBER</span>
-                <span class="description" style="font-size: 11px; color: #8e8e93;">Nazwisko</span>
+                <span class="description" style="font-size: 10px; color: #8e8e93;">Nazwisko</span>
             </div>
             <div class="cwel" style="margin-top: 8px;">
                 <span class="title" style="font-weight: 900; display: block;">POLSKIE</span>
-                <span class="description" style="font-size: 11px; color: #8e8e93;">Obywatelstwo</span>
+                <span class="description" style="font-size: 10px; color: #8e8e93;">Obywatelstwo</span>
             </div>
             <div class="cwel" style="margin-top: 8px;">
                 <span class="title" style="font-weight: 900; display: block;">12.03.2008</span>
-                <span class="description" style="font-size: 11px; color: #8e8e93;">Data urodzenia</span>
+                <span class="description" style="font-size: 10px; color: #8e8e93;">Data urodzenia</span>
             </div>
             <div class="cwel" style="margin-top: 8px;">
                 <span class="title" style="font-weight: 900; display: block;">08231231411</span>
-                <span class="description" style="font-size: 11px; color: #8e8e93;">Numer PESEL</span>
+                <span class="description" style="font-size: 10px; color: #8e8e93;">Numer PESEL</span>
             </div>
         </section>
     </main>
@@ -211,7 +233,7 @@
         <p>Dokument ważny</p>
     </section>
 
-    <!-- NOWY UKŁAD IKON -->
+    <!-- PRZYCISKI AKCJI -->
     <div class="action-grid">
         <div class="action-item">
             <div class="icon-circle"><img src="images/checkbo.png"></div>
@@ -231,7 +253,7 @@
         </div>
     </div>
 
-    <!-- SEKCJA SERII -->
+    <!-- SERIA I NUMER -->
     <div class="footer-data-box">
         <span class="footer-data-title">Seria i numer mDowodu</span>
         <div class="footer-data-value">
@@ -240,39 +262,38 @@
         </div>
     </div>
 
-    <!-- DODATKOWE DANE (Rozwijane) -->
-    <section class="collapsible buto" id="lo" style="cursor: pointer; display: flex; align-items: center; padding: 20px; border-radius: 10px; background-color: white; margin: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-        <p style="margin: 0; font-weight: bold; flex-grow: 1;">Twoje dodatkowe dane</p>
+    <!-- ROZWIJANE DANE -->
+    <section class="collapsible buto" id="lo" style="cursor: pointer; display: flex; align-items: center; padding: 20px; border-radius: 15px; background-color: white; margin: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+        <p style="margin: 0; font-weight: bold; flex-grow: 1; font-size: 16px;">Twoje dodatkowe dane</p>
         <img src="images/arrow1.svg" alt="arrow" id="rotation" style="transform: rotate(-90deg); width: 20px;">
     </section>
 
     <div id="rogo" style="display: none; padding: 0 15px;">
-        <div class="content" style="background: white; border-radius: 10px; padding: 15px;">
+        <div style="background: white; border-radius: 15px; padding: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
             <section class="dana"><p class="info">Nazwisko rodowe</p><p class="main">BOBER</p></section>
-            <p class="krecha"></p>
+            <div class="krecha"></div>
             <section class="dana"><p class="info">Płeć</p><p class="main">Mężczyzna</p></section>
-            <p class="krecha"></p>
+            <div class="krecha"></div>
+            <section class="dana"><p class="info">Imię ojca</p><p class="main">MACIEJ</p></section>
+            <div class="krecha"></div>
+            <section class="dana"><p class="info">Imię matki</p><p class="main">JOANNA</p></section>
+            <div class="krecha"></div>
             <section class="dana"><p class="info">Miejsce urodzenia</p><p class="main">Radomsko</p></section>
-            <p class="krecha"></p>
+            <div class="krecha"></div>
             <section class="dana"><p class="info">Adres zameldowania</p><p class="main">ul. 11 Listopada 7<br>97-500 Radomsko</p></section>
         </div>
     </div>
 
-    <!-- AKTUALIZACJA I USUWANIE -->
-    <div class="buto" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border-radius: 10px; background-color: white; margin: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+    <!-- AKTUALIZACJA -->
+    <div class="buto" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border-radius: 15px; background-color: white; margin: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
         <div>
-            <p class="info" style="font-size: 11px; color: #8e8e93; margin: 0;">Ostatnia aktualizacja</p>
-            <p class="main" style="font-weight: bold; margin: 0;">26.10.2024</p>
+            <p class="info">Ostatnia aktualizacja</p>
+            <p class="main" style="font-size: 18px;">26.10.2024</p>
         </div>
-        <button id="aktualizuj" style="background: #e8f2ff; color: #007aff; border: none; padding: 8px 15px; border-radius: 10px; font-weight: bold;">Aktualizuj</button>
+        <button id="aktualizuj" style="background: #e8f2ff; color: #007aff; border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; cursor: pointer;">Aktualizuj</button>
     </div>
 
-    <div class="buto" style="display: flex; align-items: center; padding: 15px 20px; border-radius: 10px; background-color: white; margin: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); color: red; font-weight: bold;" onclick="confirmDelete()">
-        <img src="images/trash.svg" style="width: 20px; margin-right: 10px; filter: invert(15%) sepia(95%) saturate(6932%) hue-rotate(358deg) brightness(95%) contrast(107%);">
-        Usuń dokument
-    </div>
-
-    <!-- DOLNA NAWIGACJA -->
+    <!-- PASEK NAWIGACJI -->
     <div class="BottomNav_bottomNav__JQdpA"> 
         <div class="BottomNav_bnTab__WzkWH"><img src="images/b001_home.svg"><span class="BottomNav_activeText__6iAIF">Pulpit</span></div>
         <div class="BottomNav_bnTab__WzkWH"><img src="images/ad005_framed_person.svg"><span>Dokumenty</span></div>
@@ -281,37 +302,88 @@
         <div class="BottomNav_bnTab__WzkWH"><img src="images/ab010_more.svg"><span>Więcej</span></div>
     </div>
 
-    <!-- UKRYTE MENU (LOGIKA WYBORU) -->
+    <!-- MODALE I MENU -->
     <section id="menu" style="display: none;">
-        <section id="wybordokumentu" style="display: none;">
-            <div id="szaro" style="position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); z-index: 1000;"></div>
-            <section id="wybierzdokument" style="position: fixed; bottom:0; background: white; width:100%; border-radius: 20px 20px 0 0; z-index: 1001; padding: 20px;">
-                <p style="text-align: center; font-weight: bold; font-size: 18px;">Wybierz dokument</p>
-                <div id="wi1" onclick="danedowodowe()"></div>
-                <div id="wi2" onclick="danemdowodowe()"></div>
-                <button onclick="wybordokumentumenu()" style="width: 100%; padding: 15px; border-radius: 10px; border: none; background: #eee; font-weight: bold;">Zamknij</button>
-            </section>
+        <div id="szaro" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;" onclick="wybordokumentumenu()"></div>
+        <section id="wybordokumentu" style="position: fixed; bottom: 0; width: 100%; background: white; border-radius: 20px 20px 0 0; z-index: 1001; padding: 20px; box-sizing: border-box;">
+            <p style="text-align: center; font-weight: bold; font-size: 18px; margin-bottom: 20px;">Wybierz dokument</p>
+            <div id="wi1" onclick="danedowodowe()"></div>
+            <div id="wi2" onclick="danemdowodowe()"></div>
+            <button style="width: 100%; padding: 15px; background: #eee; border: none; border-radius: 10px; font-weight: bold; margin-top: 10px;" onclick="wybordokumentumenu()">Zamknij</button>
         </section>
     </section>
 
-    <script src="js/rozwijka.js"></script>
-    <script src="js/wybor.js"></script>
-    <script src="js/scale.js"></script>
-    <script>
-        // Animacja godła z Twojego kodu
-        const godlo = document.getElementById('godlo');
-        window.addEventListener('deviceorientation', (event) => {
-            const rotationX = Math.min(Math.max(event.beta * 1.5, -20), 20);
-            const rotationY = Math.min(Math.max(event.gamma * 1.5, -20), 20);
-            godlo.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
-        });
+    <!-- EKRANY DANYCH -->
+    <section id="danedowodu" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 2000; overflow-y: auto;">
+        <div style="display: flex; justify-content: space-between; padding: 50px 20px 20px; align-items: center;">
+            <p style="font-weight: 900; font-size: 20px;">Dane dowodu osobistego</p>
+            <span onclick="zamknijWszystko()" style="color: #007aff; font-weight: bold; cursor: pointer;">Zamknij</span>
+        </div>
+        <div style="padding: 20px;">
+            <section class="dana"><p class="info">Seria i numer</p><p class="main">AAB464406</p></section>
+            <div class="krecha2"></div>
+            <section class="dana"><p class="info">Organ wydający</p><p class="main">URZĄD MIASTA RADOMSKO</p></section>
+            <div class="krecha2"></div>
+            <section class="dana"><p class="info">Termin ważności</p><p class="main">2034-02-21</p></section>
+        </div>
+    </section>
 
-        // Obsługa rozwijania dodatkowych danych
+    <section id="danemdowodu" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 2000; overflow-y: auto;">
+        <div style="display: flex; justify-content: space-between; padding: 50px 20px 20px; align-items: center;">
+            <p style="font-weight: 900; font-size: 20px;">Dane mDowodu</p>
+            <span onclick="zamknijWszystko()" style="color: #007aff; font-weight: bold; cursor: pointer;">Zamknij</span>
+        </div>
+        <div style="padding: 20px;">
+            <section class="dana"><p class="info">Seria i numer</p><p class="main">SFSC26506</p></section>
+            <div class="krecha2"></div>
+            <section class="dana"><p class="info">Termin ważności</p><p class="main">2034-02-21</p></section>
+        </div>
+    </section>
+
+    <script>
+        // Logika rozwijania
         $('#lo').click(function() {
-            $('#rogo').slideToggle();
+            $('#rogo').slideToggle(300);
             const rot = $('#rotation').css('transform');
             $('#rotation').css('transform', rot === 'none' || rot === 'matrix(0, -1, 1, 0, 0, 0)' ? 'rotate(0deg)' : 'rotate(-90deg)');
         });
+
+        // Obsługa menu
+        function wybordokumentumenu() {
+            $('#menu').fadeToggle(200);
+        }
+
+        function danedowodowe() {
+            $('#menu').hide();
+            $('#danedowodu').show();
+        }
+
+        function danemdowodowe() {
+            $('#menu').hide();
+            $('#danemdowodu').show();
+        }
+
+        function zamknijWszystko() {
+            $('#danedowodu, #danemdowodu').hide();
+        }
+
+        // Kopiowanie
+        $('.copy-pill').click(function() {
+            alert('Skopiowano do schowka!');
+        });
+
+        // Animacja godła
+        window.addEventListener('deviceorientation', (event) => {
+            const godlo = document.getElementById('godlo');
+            if(godlo) {
+                const rX = Math.min(Math.max(event.beta, -15), 15);
+                const rY = Math.min(Math.max(event.gamma, -15), 15);
+                godlo.style.transform = `rotateX(${rX}deg) rotateY(${rY}deg)`;
+            }
+        });
     </script>
+    <script src="js/rozwijka.js"></script>
+    <script src="js/wybor.js"></script>
+    <script src="js/scale.js"></script>
 </body>
 </html>
