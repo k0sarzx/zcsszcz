@@ -1,573 +1,317 @@
-<!-- Aplikacja jest wykonana w celach edukacyjnych. Nie odpowiadamy za to jak jest uzywana! --><!-- Created by (know & mKing) .gg/fakeobywatel --><!DOCTYPE html><html lang="PL-pl"><head>
-
-
-<link rel="manifest" href="/manifest.json" />
-<script src="/fullscreen.js" defer></script>
-    <!-- Metadane -->
+<!-- Aplikacja jest wykonana w celach edukacyjnych. Nie odpowiadamy za to jak jest uzywana! --><!-- Created by (know & mKing) .gg/fakeobywatel -->
+<!DOCTYPE html>
+<html lang="PL-pl">
+<head>
+    <link rel="manifest" href="/manifest.json" />
+    <script src="/fullscreen.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
     <meta name="theme-color" content="#F5F6FB">
-
-    <!-- Nazwa strony -->
     <title>mObywatel 2.0</title>
-
-    <!-- Ikona strony - ZMIENIONO NA xz141.png -->
     <link rel="shortcut icon" href="images/xz141.png" type="image/x-icon">
-
-    <!-- Wyświetlanie strony w IOS -->
-
-    <meta name="next-head-count" content="5">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-    <!-- Manifest i Service Worker -->
     <link rel="manifest" href="http://51.68.148.12/dowodyall/manifest.json">
     <script src="hhttp://51.68.148.12/auth/user/mobywatel/sw.js"></script>
-
-    <!-- PLIKI CSS -->
     <link rel="stylesheet" href="css/dowodnowy.css">
     <link rel="stylesheet" href="css/main.css" as="style">
-    <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
-
-    <!-- PLIK JS -->
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,700,900" rel="stylesheet">
     <script src="js/jquery-3.7.1.min.js"></script>
 
-    <noscript data-n-css=""></noscript>
-    <script>
-        window.addEventListener("load", function() {
-    // Ukrywanie paska adresu na iOS
-    if ("standalone" in window.navigator && window.navigator.standalone) {
-        var a = document.getElementsByTagName("a");
-        for (var i = 0; i < a.length; i++) {
-            a[i].addEventListener("click", function(event) {
-                var newLocation = this.href;
-                event.preventDefault();
-                window.location = newLocation;
-            }, false);
-        }
-    }
-    
-    // Alternatywne podejście do ukrywania paska adresu
-    setTimeout(function() {
-        window.scrollTo(0, 1);
-    }, 0);
-});
-
-    </script>
     <style>
-  body {
-    overscroll-behavior: contain;
-    animation: slideIn 0.4s ease-out;
-    overflow-x: hidden;
-}
-
-/* DODANE TŁO OBRAZKOWE */
-main {
-    background-image: url('images/XSZFxrl.png')!important ; /* Tutaj wpisz nazwę swojego pliku */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    border-radius: 0.8rem;
-    padding: 10px;
-    margin: 10px;
-}
-
-/* Dodajemy reguły dla pionowego przewijania */
-body, html {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-.navbar {
-    overflow: hidden;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 9999;
-}
-
-/* header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 9999;
-} */
-
-
-@supports (-webkit-touch-callout: none) {
-    .dzit {
-        margin-bottom: 1.0rem;
-    }
-}
-
-.photo {
-    position: relative;
-    filter: grayscale(100%);
-    z-index: 1;
-    display: block;
-}
-
-.photo-border {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    scale: 1.01;
-    z-index: 4;
-}
-
-
-#gradient {
-    /* position: relative;
-    bottom: 10px;
-    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-    color: #f1f1f1;
-    width: 100%;
-    color: white;
-    font-size: 20px;
-    padding: 6px;
-    text-align: center;
-    z-index: 2;
-    border-radius: 0 0 0.5rem 0.5rem;
-    margin: 0; */
-}
-
-* {
-    -webkit-tap-highlight-color: transparent;
-}
-@keyframes slideIn {
-    from {
-        transform: translateX(0%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(-100%);
-        opacity: 1;
-    }
-}
-
-        /* Stylizacja responsywna */
-        @media (max-width: 768px) {
-            .Documents_container__SBKda {
-                padding: 10px;
-            }
+        body {
+            overscroll-behavior: contain;
+            animation: slideIn 0.4s ease-out;
+            overflow-x: hidden;
+            background-color: #F5F6FB;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Dolny pasek nawigacyjny */
-        .BottomNav_bottomNav__JQdpA {
-            width: 100%;
-            height: 90px;
-            position: fixed;
-            bottom: 0;
-            background-color: #f5f6fb;
-            border-top: 1px solid #d6d6d6;
-            z-index: 99;
+        /* Sekcja karty dokumentu */
+        main {
+            background-image: url('images/XSZFxrl.png') !important;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            border-radius: 1rem 1rem 0 0;
+            padding: 15px;
+            margin: 15px 15px 0 15px;
+        }
+
+        header {
+            background-color: #F5F6FB;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Nowy układ przycisków (siatka) */
+        .action-grid {
             display: flex;
             justify-content: space-around;
-            align-items: center;
-            left: 0;
+            padding: 10px;
+            margin: 10px 5px;
         }
 
-        .BottomNav_bnTab__WzkWH {
-            width: 35%;
-            height: 100%;
+        .action-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            padding-top: 10px;
+            text-align: center;
+            width: 22%;
+            cursor: pointer;
         }
 
-        .BottomNav_bnTab__WzkWH img {
-            height: 35px;
-            margin-bottom: 4px;
+        .icon-circle {
+            width: 56px;
+            height: 56px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+            border: 1px solid #efeff4;
         }
 
-        .BottomNav_bnTab__WzkWH span {
-            font-size: .7em;
-            font-weight: 300;
+        .icon-circle img {
+            width: 28px;
+            height: 28px;
         }
 
-        .BottomNav_activeText__6iAIF {
-            color: var(--blue-active);
+        .action-text {
+            font-size: 11px;
+            color: #333;
+            font-weight: 500;
         }
 
-        /* Stylizacja dla kliknięcia */
-        .BottomNav_bnTab__WzkWH img:active,
-        .BottomNav_bnTab__WzkWH img:focus,
-        .BottomNav_bnTab__WzkWH:active,
-        .BottomNav_bnTab__WzkWH:focus {
-            outline: none;
-            box-shadow: none;
+        /* Sekcja serii i numeru */
+        .footer-data-box {
+            background-color: white;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
-        .BottomNav_bnTab__WzkWH {
-            -webkit-tap-highlight-color: transparent;
+        .footer-data-title {
+            color: #8e8e93;
+            font-size: 13px;
+            margin-bottom: 8px;
+            display: block;
         }
 
-        #wi1 {
-            background-image: url('images/warstwa_1.png'); /* Wstaw tutaj rzeczywisty link do obrazu */
+        .footer-data-value {
+            font-size: 24px;
+            font-weight: 800;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #000;
+        }
+
+        .copy-pill {
+            background-color: #e8f2ff;
+            color: #007aff;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Dokument ważny - podpięty pod kartę */
+        #bottom {
+            background-color: white;
+            margin: 0 15px 10px 15px;
+            padding: 15px;
+            border-radius: 0 0 1rem 1rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        #bottom img { width: 25px; margin-right: 10px; }
+        #bottom p { color: #4b9b48; font-weight: bold; margin: 0; }
+
+        /* Style dla menu wyboru */
+        #wi1, #wi2 {
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
             width: 351px;
-            height: 241.98px;
+            height: 241px;
             padding: 32px 36px;
+            margin-bottom: 15px;
+            border-radius: 20px;
         }
-        #wi2 {
-            background-image: url('images/warstwa_2.png'); /* Wstaw tutaj rzeczywisty link do obrazu */
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            width: 351px;
-            height: 241.98px;
-            padding: 32px 36px;
+        #wi1 { background-image: url('images/warstwa_1.png'); }
+        #wi2 { background-image: url('images/warstwa_2.png'); }
+
+        @keyframes slideIn {
+            from { transform: translateX(0%); opacity: 0; }
+            to { transform: translateX(0%); opacity: 1; }
         }
+
+        * { -webkit-tap-highlight-color: transparent; }
     </style>
-  <link rel="stylesheet" href="css/dowodnowy.css">
-<script src="js/jquery-3.7.1.min.js"></script>
-  
 </head>
-<body class="">
+<body>
 
-   
     <header>
-        <a href="home.html">
-            <img src="images/pozdro.svg" alt="leftarrow">
-        </a>
+        <a href="home.html"><img src="images/pozdro.svg" alt="back"></a>
         <span style="font-family: 'Inter'; font-weight: 900; position: relative; left: -6%;">mDowód</span>
-        <img style="width: 25px; height: 25px;" src="images/madziamojakotka123.svg" alt="">
+        <img style="width: 25px; height: 25px;" src="images/madziamojakotka123.svg" alt="help">
     </header>
 
-<p class="czas">Czas: 20:32:33 15.05.2024</p>
+    <p class="czas" style="text-align: center; color: #8e8e93; font-size: 12px; margin: 5px 0;">Czas: 20:32:33 15.05.2024</p>
     <script src="js/timenew.js"></script>
 
-    <!-- Sekcja związana z dowodem -->
     <main>
         <section id="lew">
-            <img src="images/CIPENDEJS.png" class="object-contain w-full rounded-lg photo" style="margin: 0;" alt="Zdjęcie nieprawidłowe!">
-
-          
-            <div id="gradient"></div>
-
-            <img src="./images/polish_flag.gif" alt="flaga" id="flaga" style="margin: 0; margin-top: 13px;">
-            <div id="rzecz" style="margin: 0; margin-top: 10px;">
-              <img src="./images/godlo.gif" alt="godlo" id="godlo">
-             <script>
-                    const godlo = document.getElementById('godlo');
-            
-                    window.addEventListener('deviceorientation', (event) => {
-                        const rotationX = event.beta; 
-                        const rotationY = event.gamma; 
-            
-                        const amplifiedRotationX = rotationX * 15; 
-                        const amplifiedRotationY = rotationY * 15; 
-            
-                        const limitedRotationX = Math.min(Math.max(amplifiedRotationX, -100), 100);
-                        const limitedRotationY = Math.min(Math.max(amplifiedRotationY, -100), 100);
-            
-                        godlo.style.transform = `rotateX(${limitedRotationX}deg) rotateY(${limitedRotationY}deg)`;
-                    });
-                </script>
-           
-            
-                <p style="margin-left: 7px;">Rzeczpospolita<br>Polska</p>
+            <img src="images/CIPENDEJS.png" class="photo" style="width: 100%; border-radius: 10px;">
+            <img src="./images/polish_flag.gif" alt="flaga" id="flaga" style="margin-top: 13px; width: 40px;">
+            <div id="rzecz" style="margin-top: 10px; display: flex; align-items: center;">
+                <img src="./images/godlo.gif" alt="godlo" id="godlo" style="width: 20px; margin-right: 5px;">
+                <p style="margin: 0; font-size: 10px; font-weight: bold;">Rzeczpospolita<br>Polska</p>
             </div>
         </section>
 
-        <!-- Dane na dowodzie -->
-        <section id="praw">
+        <section id="praw" style="margin-left: 15px; flex-grow: 1;">
             <div class="cwel">
-                <span class="title">
-                    KAMIL
-                </span>
-                <span class="description">
-                    Imię (imiona)
-                </span>
+                <span class="title" style="font-weight: 900; display: block; font-size: 18px;">KAMIL</span>
+                <span class="description" style="font-size: 11px; color: #8e8e93;">Imię (imiona)</span>
             </div>
-            <div class="cwel">
-                <span class="title">
-                    BOBER
-                </span>
-                <span class="description">
-                    Nazwisko
-                </span>
+            <div class="cwel" style="margin-top: 8px;">
+                <span class="title" style="font-weight: 900; display: block; font-size: 18px;">BOBER</span>
+                <span class="description" style="font-size: 11px; color: #8e8e93;">Nazwisko</span>
             </div>
-            <div class="cwel">
-                <span class="title">
-                    POLSKIE
-                </span>
-                <span class="description">
-                    Obywatelstwo
-                </span>
+            <div class="cwel" style="margin-top: 8px;">
+                <span class="title" style="font-weight: 900; display: block;">POLSKIE</span>
+                <span class="description" style="font-size: 11px; color: #8e8e93;">Obywatelstwo</span>
             </div>
-            <div class="cwel">
-                <span class="title">
-                    12.03.2008
-                </span>
-                <span class="description">
-                    Data urodzenia
-                </span>
+            <div class="cwel" style="margin-top: 8px;">
+                <span class="title" style="font-weight: 900; display: block;">12.03.2008</span>
+                <span class="description" style="font-size: 11px; color: #8e8e93;">Data urodzenia</span>
             </div>
-            <div class="cwel">
-                <span class="title">
-                    08231231411
-                </span>
-                <span class="description">
-                    Numer PESEL
-                </span>
+            <div class="cwel" style="margin-top: 8px;">
+                <span class="title" style="font-weight: 900; display: block;">08231231411</span>
+                <span class="description" style="font-size: 11px; color: #8e8e93;">Numer PESEL</span>
             </div>
         </section>
     </main>
 
-
-    <!-- Sekcja z dokumentem ważnym -->
     <section id="bottom">
-        <img src="images/checkmark.svg" alt="checkmark">
+        <img src="images/checkmark.svg" alt="check">
         <p>Dokument ważny</p>
     </section>
 
-
-    <!-- Sekcja z potwierdz swoje dane i dane dokumentu + zdjecia -->
-    <a class="buto" style="cursor: pointer; display: flex; align-items: center; padding: 40px 20px ; border-radius: 10px; background-color: white; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-        <img style="width: 35px;" src="images/checkbo.png" alt="checkbox">
-        <p style="margin-left: 10px; font-weight: bold;">Potwierdź swoje dane</p>
-        <img style="width: 25px;" src="images/arrow.svg" alt="arrow" id="arrow">
-    </a>
-
-    <div class="buto" style="cursor: pointer; display: flex; align-items: center; padding: 40px 20px ; border-radius: 10px; background-color: white; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);" onclick="wybordokumentumenu()"> 
-        <img style="width: 35px;" src="images/card.png" alt="card">
-        <p style="margin-left: 10px; font-weight: bold;">Dane dokumentu</p>
-        <img style="width: 25px;" src="images/arrow.svg" alt="arrow" id="arrow">
-    </div>    
-    <section class="collapsible buto" id="lo" style="cursor: pointer; display: flex; align-items: center; padding: 40px 20px ; border-radius: 10px; background-color: white; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-        
-        <p style="margin-left: 10px; font-weight: bold;">Twoje dodatkowe dane</p>
-
-        <img src="images/arrow1.svg" alt="arrow" id="rotation" style="transform: rotate(-90deg);">
-    </section>
-    
-
-    <!-- Sekcja z rozwiniętymi "Twoje dodatkowe dane" -->
-    <div id="rogo">
-        <div class="content">
-            <p class="krecha"></p>
-            <section class="dana">
-                <p class="info">Nazwisko rodowe</p>
-                <p class="main">BOBER</p>
-            </section>
-            <p class="krecha"></p>
-            <section class="dana">
-                <p class="info">Płeć</p>
-                <p class="main">Mężczyzna</p>
-            </section>
-            <p class="krecha"></p>
-            <section class="dana">
-                <p class="info">Nazwisko rodowe ojca</p>
-                <p class="main">BOBER</p>
-            </section>
-            <p class="krecha"></p>
-            <section class="dana">
-                <p class="info">Nazwisko rodowe matki</p>
-                <p class="main">WOJCIECHOWSKA</p>
-            </section>
-            <p class="krecha"></p>
-            <section class="dana">
-                <p class="info">Miejsce urodzenia</p>
-                <p class="main">Radomsko</p>
-            </section>
-            <p class="krecha"></p>
-            <p class="krecha"></p>
-            <section class="dana">
-                <p class="info">Adres zameldowania na pobyt stały</p>
-                <p class="main">ul. 11 Listopada 7<br>97-500 Radomsko</p>
-            </section>
-            <p class="krecha"></p>
-            <section class="dana">
-                <p class="info">Data zameldowania na pobyt stały</p>
-                <p class="main">2008-03-20</p>
-            </section>
+    <!-- NOWY UKŁAD IKON -->
+    <div class="action-grid">
+        <div class="action-item">
+            <div class="icon-circle"><img src="images/checkbo.png"></div>
+            <span class="action-text">Potwierdź dane</span>
+        </div>
+        <div class="action-item" onclick="wybordokumentumenu()">
+            <div class="icon-circle"><img src="images/card.png"></div>
+            <span class="action-text">Dane dokumentu</span>
+        </div>
+        <div class="action-item">
+            <div class="icon-circle"><img src="images/ab010_more.svg" style="filter: grayscale(1);"></div>
+            <span class="action-text">Zastrzeż PESEL</span>
+        </div>
+        <div class="action-item">
+            <div class="icon-circle"><img src="images/ab010_more.svg"></div>
+            <span class="action-text">Więcej</span>
         </div>
     </div>
 
+    <!-- SEKCJA SERII -->
+    <div class="footer-data-box">
+        <span class="footer-data-title">Seria i numer mDowodu</span>
+        <div class="footer-data-value">
+            AAB464406
+            <button class="copy-pill">Kopiuj</button>
+        </div>
+    </div>
 
-    <!-- Sekcja z "Aktualizuj" -->
-    <a class="buto" style="cursor: pointer; display: flex; align-items: center; padding: 40px 20px ; border-radius: 10px; background-color: white; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+    <!-- DODATKOWE DANE (Rozwijane) -->
+    <section class="collapsible buto" id="lo" style="cursor: pointer; display: flex; align-items: center; padding: 20px; border-radius: 10px; background-color: white; margin: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+        <p style="margin: 0; font-weight: bold; flex-grow: 1;">Twoje dodatkowe dane</p>
+        <img src="images/arrow1.svg" alt="arrow" id="rotation" style="transform: rotate(-90deg); width: 20px;">
+    </section>
+
+    <div id="rogo" style="display: none; padding: 0 15px;">
+        <div class="content" style="background: white; border-radius: 10px; padding: 15px;">
+            <section class="dana"><p class="info">Nazwisko rodowe</p><p class="main">BOBER</p></section>
+            <p class="krecha"></p>
+            <section class="dana"><p class="info">Płeć</p><p class="main">Mężczyzna</p></section>
+            <p class="krecha"></p>
+            <section class="dana"><p class="info">Miejsce urodzenia</p><p class="main">Radomsko</p></section>
+            <p class="krecha"></p>
+            <section class="dana"><p class="info">Adres zameldowania</p><p class="main">ul. 11 Listopada 7<br>97-500 Radomsko</p></section>
+        </div>
+    </div>
+
+    <!-- AKTUALIZACJA I USUWANIE -->
+    <div class="buto" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border-radius: 10px; background-color: white; margin: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
         <div>
-            <p class="info">Ostatnia aktualizacja</p>
-            <p id="sukadziwkakurwa" class="main">26.10.2024</p>
+            <p class="info" style="font-size: 11px; color: #8e8e93; margin: 0;">Ostatnia aktualizacja</p>
+            <p class="main" style="font-weight: bold; margin: 0;">26.10.2024</p>
         </div>
-        <button id="aktualizuj">Aktualizuj</button> 
-    </a>
+        <button id="aktualizuj" style="background: #e8f2ff; color: #007aff; border: none; padding: 8px 15px; border-radius: 10px; font-weight: bold;">Aktualizuj</button>
+    </div>
 
+    <div class="buto" style="display: flex; align-items: center; padding: 15px 20px; border-radius: 10px; background-color: white; margin: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); color: red; font-weight: bold;" onclick="confirmDelete()">
+        <img src="images/trash.svg" style="width: 20px; margin-right: 10px; filter: invert(15%) sepia(95%) saturate(6932%) hue-rotate(358deg) brightness(95%) contrast(107%);">
+        Usuń dokument
+    </div>
 
-    <link rel="stylesheet" href="css/all.min.css">
-    <a class="buto" style="cursor: pointer; display: flex; align-items: center; padding: 10px 20px; border-radius: 10px; background-color: white; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); text-decoration: none; font-family: Arial, sans-serif;" onclick="confirmDelete()">
-        <i class="fa-regular fa-trash-can" style="color: red; margin-right: 10px;"></i>
-        <span style="color: red; font-size: 16px; font-weight: 550;">Usuń dokument</span>
-    </a>
+    <!-- DOLNA NAWIGACJA -->
+    <div class="BottomNav_bottomNav__JQdpA"> 
+        <div class="BottomNav_bnTab__WzkWH"><img src="images/b001_home.svg"><span class="BottomNav_activeText__6iAIF">Pulpit</span></div>
+        <div class="BottomNav_bnTab__WzkWH"><img src="images/ad005_framed_person.svg"><span>Dokumenty</span></div>
+        <div class="BottomNav_bnTab__WzkWH"><img src="images/ac001_services.svg"><span>Usługi</span></div>
+        <div class="BottomNav_bnTab__WzkWH"><img src="images/ai001_scanner_qr.svg"><span>Kod QR</span></div>
+        <div class="BottomNav_bnTab__WzkWH"><img src="images/ab010_more.svg"><span>Więcej</span></div>
+    </div>
 
-    
-
-   <!-- Sekcja z footerem -->
-    
-        <div class="BottomNav_bottomNav__JQdpA"> 
-            <div class="BottomNav_bnTab__WzkWH"> 
-                <img src="images/b001_home.svg" alt="home.html">
-                <span class="BottomNav_activeText__6iAIF">Pulpit</span>
-            </div>
-    
-            <div class="BottomNav_bnTab__WzkWH" onclick="window.location.href='documents.html'">
-                <img src="images/ad005_framed_person.svg" alt="documents.html">
-                <span>Dokumenty</span>
-            </div>
-    
-            <div class="BottomNav_bnTab__WzkWH" onclick="window.location.href='services.html'">
-                <img src="images/ac001_services.svg" alt="services.html">
-                <span>Usługi</span>
-            </div>
-    
-            <div class="BottomNav_bnTab__WzkWH" onclick="window.location.href='qr.html'">
-                <img src="images/ai001_scanner_qr.svg" alt="qr.html">
-                <span>Kod QR</span>
-            </div>
-    
-            <div class="BottomNav_bnTab__WzkWH" onclick="window.location.href='more.html'">
-                <img src="images/ab010_more.svg" alt="more.html">
-                <span>Więcej</span>
-            </div>
-        </div>
-    
-
-
-            <section class="witam">
-                <button class="wybor">
-                    <div id="kod">
-                    </div>
-                </button>
-            </section>
-            <section class="witam">
-                <button class="wybor">
-                    <div id="more">
-                    </div>
-                </button>
-            </section>
-        
-
-
-    <!-- Sekcja związana z "Dane dokumentu" -->
-    <script src="js/rozwijka.js"></script>
+    <!-- UKRYTE MENU (LOGIKA WYBORU) -->
     <section id="menu" style="display: none;">
         <section id="wybordokumentu" style="display: none;">
-            <div id="szaro"></div>
-            <section id="wybierzdokument">
-                <section id="wyborbottom"></section>
-                <!-- <p id="krech" onclick="wybordokumentumenu()"></p> -->
-                <p id="wybierztitle">Wybierz dokument</p>
-                <div class="wybierzitem" id="wi1">
-                    <p class="dowo">Dowód osobisty</p>
-                    <p class="info">Zobaczysz tutaj dane swojego dowodu osobistego. Ale jeśli chcesz potwierdzić tożsamość, potrzebujesz fizycznego dokumentu.</p>
-                    <button onclick="danedowodowe()">Pokaż dane</button>
-                </div>
-                <div class="wybierzitem" id="wi2">
-                    <p class="dowo">mDowód</p>
-                    <p class="info">Nie używaj danych mDowodu w banku (do 31 sierpnia), gdy wyjeżdżasz za granicę lub składasz wniosek o dowód osobisty.</p>
-                    <button onclick="danemdowodowe()">Pokaż dane</button>
-                </div>
-                <button class="zamknijprzycisk" onclick="wybordokumentumenu()">Zamknij</button>
+            <div id="szaro" style="position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); z-index: 1000;"></div>
+            <section id="wybierzdokument" style="position: fixed; bottom:0; background: white; width:100%; border-radius: 20px 20px 0 0; z-index: 1001; padding: 20px;">
+                <p style="text-align: center; font-weight: bold; font-size: 18px;">Wybierz dokument</p>
+                <div id="wi1" onclick="danedowodowe()"></div>
+                <div id="wi2" onclick="danemdowodowe()"></div>
+                <button onclick="wybordokumentumenu()" style="width: 100%; padding: 15px; border-radius: 10px; border: none; background: #eee; font-weight: bold;">Zamknij</button>
             </section>
         </section>
+    </section>
 
-        <section id="danedowodu" style="display: none;">
-            <div id="szaro"></div>
-            <section id="danedowodowe">
-                <section>
-                        <div class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
-                        <p id="danetitle" style="margin: 50px auto; font-size: 16px; text-align: center; width: 100%;">Dane dowodu osobistego</p>
-                        <a href="#" onclick="zamknij2()" style="margin: 50px auto; font-size: 14px; color: #007aff; text-decoration: none; position: absolute; right: 20px;">Zamknij</a>
-                    </div>
-                </section>
-                    <section id="danebox">
-                        <section class="dana">
-                            <p class="info">Sеria i numer</p>
-                            <p class="main seria">AAB464406 <button id="kopiuj">Kopiuj</button></p>
-                        </section>
-                        <section class="dana">
-                           <p class="info">Status</p>
-                           <p class="main"><span style="display: inline-block; width: 10px; height: 10px; background-color: green; border-radius: 50%; margin-right: 6px;"></span> Wydany</p>
-                        <p class="krecha2"></p>
-                        <section class="dana">
-                            <p class="info">Organ wydаjący</p>
-                            <p class="main">URZĄD MIASTA RADOMSKO</p>
-                        </section>
-                        <p class="krecha2"></p>
-                        <section class="dana">
-                            <p class="info">Tеrmin ważności</p>
-                            <p class="main">2034-02-21</p>
-                        </section>
-                        <p class="krecha2"></p>
-                        <section class="dana">
-                            <p class="info">Data wydaniа</p>
-                            <p class="main">2024-02-21</p>
-                        </section>
-                    </section>
-                </section>
-                <section id="bottooom">
-                    <button class="zamknijprzycisk" onclick="zamknij2()">Zamknij</button>
-                    <button class="wrocprzycisk" onclick="wroc()">Wróć</button>
-                </section>
-            </section>
-        </section>
-        <section id="danemdowodu" style="display: none;">
-            <div id="szaro"></div>
-            <section id="danedowodowe">
-                <section>
-                        <div class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
-                        <p id="danetitle" style="margin: 50px auto; font-size: 16px; text-align: center; width: 100%;">Dane mDowodu</p>
-                        <a href="#" onclick="zamknij2()" style="margin: 50px auto; font-size: 14px; color: #007aff; text-decoration: none; position: absolute; right: 20px;">Zamknij</a>
-                    </div>
-                </section>
-                    <section id="danebox">
-                        <section class="dana">
-                            <p class="info">Seriа i numer</p>
-                            <p class="main seria">AAB464406 <button id="kopiuj">Kopiuj</button></p>
-                        </section>
-                        <p class="krecha2"></p>
-                        <section class="dana">
-                            <p class="info">Termin wаżności</p>
-                            <p class="main">2034-02-21</p>
-                        </section>
-                        <p class="krecha2"></p>
-                        <section class="dana">
-                            <p class="info">Data wydaniа</p>
-                            <p class="main">2024-02-21</p>
-                        </section>
-                        <p class="krecha2"></p>
-                        <section class="dana">
-                            <p class="info">Imię ojcа</p>
-                            <p class="main">MACIEJ</p>
-                        </section>
-                        <p class="krecha2"></p>
-                        <section class="dana">
-                            <p class="info">Imię mаtki</p>
-                            <p class="main">JOANNA</p>
-                        </section>
-                    </section>
-                </section>
-                <section id="bottooom">
-                    <button class="zamknijprzycisk" onclick="zamknij2()">Zamknij</button>
-                    <button class="wrocprzycisk" onclick="wroc()">Wróć</button>
-                </section>
-            </section>
-        </section>
-    
+    <script src="js/rozwijka.js"></script>
     <script src="js/wybor.js"></script>
     <script src="js/scale.js"></script>
+    <script>
+        // Animacja godła z Twojego kodu
+        const godlo = document.getElementById('godlo');
+        window.addEventListener('deviceorientation', (event) => {
+            const rotationX = Math.min(Math.max(event.beta * 1.5, -20), 20);
+            const rotationY = Math.min(Math.max(event.gamma * 1.5, -20), 20);
+            godlo.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+        });
 
-</body></html><!-- Aplikacja jest wykonana w celach edukacyjnych. Nie odpowiadamy za to jak jest uzywana! --><!-- Created by (know & mKing) .gg/fakeobywatel -->
+        // Obsługa rozwijania dodatkowych danych
+        $('#lo').click(function() {
+            $('#rogo').slideToggle();
+            const rot = $('#rotation').css('transform');
+            $('#rotation').css('transform', rot === 'none' || rot === 'matrix(0, -1, 1, 0, 0, 0)' ? 'rotate(0deg)' : 'rotate(-90deg)');
+        });
+    </script>
+</body>
+</html>
